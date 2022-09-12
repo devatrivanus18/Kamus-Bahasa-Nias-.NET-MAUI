@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="KamusBahasaNias.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:KamusBahasaNias"
+    BackgroundColor="#701515"
+    NavigationPage.HasBackButton="False"
+    IconImageSource="home.svg"
+    xmlns:pages="clr-namespace:KamusBahasaNias.Pages"
+    Shell.FlyoutBehavior="Flyout">
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="#701515"
+                  HeightRequest="200">
+                <Image Aspect="AspectFit"
+                       Source="header"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <ShellContent
+        Title="Home"
+        Icon="home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage">
+    </ShellContent>
+    <ShellContent
+        Title="Kosa Kata"
+        Icon="book"
+        ContentTemplate="{DataTemplate pages:KosaKataPage}"
+        Route="KosaKataPage">
+    </ShellContent>
+    <ShellContent
+        Title="Tambah Kosa Kata"
+        Icon="book"
+        ContentTemplate="{DataTemplate pages:TambahDataPage}"
+        Route="TambahDataPage">
+    </ShellContent>
+</Shell>

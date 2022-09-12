@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KamusBahasaNias.Pages.KosaKataPage"
+             Title=""
+             xmlns:vm="clr-namespace:KamusBahasaNias.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:ViewModelKosaKata/>
+    </ContentPage.BindingContext>
+    <RefreshView IsRefreshing="{Binding IsRefresh}"  Command="{Binding RefreshCommand}">
+        <StackLayout>
+        <Grid BackgroundColor="White" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
+            <Frame ZIndex="99" CornerRadius="80" Margin="-10,-20,-10,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="#701515" HeightRequest="100">
+                    <Label Text="Kosa Kata" HorizontalOptions="Center" FontSize="20" TextColor="White"/>
+                </Frame>
+            </Grid>
+            <ListView VerticalScrollBarVisibility="Never" SelectionMode="None" HasUnevenRows="True" ItemsSource="{Binding ListKosaKata}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                            <StackLayout BackgroundColor="White">
+                                <Frame  Margin="10,5,10,10"  CornerRadius="15"  HasShadow="True"  BackgroundColor="#f9f9f9" HeightRequest="100">
+                                    <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*" VerticalOptions="Center">
+                                        <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center" Source="book" WidthRequest="50" HeightRequest="50" Aspect="AspectFill"/>
+                                        <Label  Grid.Column="1" Grid.Row="0" Text="{Binding KataAsal}"  TextColor="Black"/>
+                                        <Label  Grid.Column="1" Grid.Row="1"/>
+                                        <Label  Grid.Column="1" Grid.Row="2" Text="{Binding KataAsal}"  TextColor="Black"/>
+                                        <Label  Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center" Text="{Binding KataAsal}"  TextColor="Black"/>
+                                </Grid>
+                                </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            <Button Text="Back" x:Name="Button_Back" Clicked="Button_Back_Clicked" HorizontalOptions="Center" VerticalOptions="End"/>
+        </StackLayout>
+    </RefreshView>
+</ContentPage>
