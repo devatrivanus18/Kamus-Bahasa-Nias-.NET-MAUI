@@ -54,4 +54,18 @@ public class ServiceKosaKata : BaseViewModel
             return database.InsertAsync(kosaKata);
         }
     }
+
+    public Task<int> DeleteBukuAsync(KosaKata kosaKata)
+    {
+        if (kosaKata.ID != 0)
+        {
+            // Update an existing note.
+            return database.DeleteAsync(kosaKata);
+        }
+        else
+        {
+            // Save a new note.
+            return database.DeleteAsync(kosaKata);
+        }
+    }
 }
